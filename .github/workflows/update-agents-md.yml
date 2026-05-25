@@ -237,6 +237,7 @@ jobs:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           github_token: ${{ secrets.GH_TOKEN || github.token }}
           prompt: ${{ steps.read_prompt.outputs.value }}
+          show_full_output: 'true'
           claude_args: |
             --max-turns ${{ inputs.claude_max_turns }}
             ${{ inputs.model && format('--model {0}', inputs.model) || '' }}
