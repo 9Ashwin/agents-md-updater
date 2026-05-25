@@ -135,7 +135,7 @@ jobs:
         if: ${{ env.ACT != 'true' }}
         uses: actions/checkout@v5
         with:
-          repository: sheepbox8646/agents-md-updater
+          repository: 9Ashwin/agents-md-updater
           ref: ${{ inputs.tools_ref }}
           path: .agents-md-updater
           fetch-depth: 1
@@ -228,6 +228,10 @@ jobs:
         uses: anthropics/claude-code-action@v1
         env:
           ANTHROPIC_BASE_URL: ${{ inputs.anthropic_base_url }}
+          ANTHROPIC_MODEL: ${{ inputs.model || '' }}
+          ANTHROPIC_DEFAULT_HAIKU_MODEL: ${{ inputs.model || '' }}
+          ANTHROPIC_DEFAULT_SONNET_MODEL: ${{ inputs.model || '' }}
+          ANTHROPIC_DEFAULT_OPUS_MODEL: ${{ inputs.model || '' }}
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
