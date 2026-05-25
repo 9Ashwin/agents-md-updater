@@ -238,9 +238,10 @@ jobs:
           github_token: ${{ secrets.GH_TOKEN || github.token }}
           prompt: ${{ steps.read_prompt.outputs.value }}
           show_full_output: 'true'
-          allowed_tools: 'Edit,Read,ListDir,Grep,Glob,LS'
+          additional_permissions: 'Edit,MultiEdit,Write,Read,ListDir,Grep,Glob,LS'
           claude_args: |
             --max-turns ${{ inputs.claude_max_turns }}
+            --allowedTools Edit,MultiEdit,Write,Read,ListDir,Grep,Glob,LS
             ${{ inputs.model && format('--model {0}', inputs.model) || '' }}
 
       - name: Apply dry-run change
